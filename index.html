@@ -22,8 +22,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react-transition-group/2.2.1/react-transition-group.min.js"></script>
         <!--   ::Added react-redux-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/3.2.0/ReactRouter.js"></script>
-
-        <script src="https://unpkg.com/mobx@3.4.1/lib/mobx.umd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mobx/3.4.1/mobx.umd.js"></script>
         <script  src="https://unpkg.com/mobx-react"></script>
 
 
@@ -64,15 +63,20 @@
     </body>
     <script type="text/babel">
         var {Router, Route, Link, IndexRoute, hashHistory} = ReactRouter;
-        var {observable} = mobx;
-        console.log(observable);
+        var {observable,computed,autorun} = mobx;
+        var {observer} = mobxReact;
         var {ButtonGroup, Button, DropdownButton, MenuItem, Collapse, Well, SplitButton, Glyphicon, Table} = ReactBootstrap;
         const api_request = window.superagent;
         var Modal = window.ReactBootstrap.Modal;
         var {CSSTransition, Transition, TransitionGroup} = ReactTransitionGroup;
     </script>
-    <script type="text/babel" data-presets="es2015" data-plugins="transform-decorators-legacy,transform-class-properties"
+    <script type="text/babel"  data-plugins="transform-decorators-legacy,transform-class-properties"
     src="src/store/Todostore.js" ></script>
+    <script type="text/babel"   data-plugins="transform-decorators-legacy"
+    src="src/components/Todo.js" ></script>
+    <script type="text/babel">
+    ReactDOM.render(<Todo store={store} />,document.getElementById('root'));
+    </script>
 
 
 
