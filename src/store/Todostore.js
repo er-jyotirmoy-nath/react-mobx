@@ -16,11 +16,11 @@ class Todostore {
 		return this.todos.filter(item => !this.filter || matchfilter.test(item.text));
 	}
 
-	createnewTodo(value){
+	@action createnewTodo(value){
 		this.todos.push(new Todoitem(value));
 	}
 
-	removeComplted = ()=>{
+	@action removeComplted = ()=>{
 		const notcomplted = this.todos.filter(item =>  !item.completed);
 		this.todos.replace(notcomplted);
 	}

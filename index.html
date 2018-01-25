@@ -63,8 +63,8 @@
     </body>
     <script type="text/babel">
         var {Router, Route, Link, IndexRoute, hashHistory} = ReactRouter;
-        var {observable,computed,autorun} = mobx;
-        var {observer} = mobxReact;
+        var {observable,computed,autorun,action} = mobx;
+        var {observer,Provider,inject} = mobxReact;
         var {ButtonGroup, Button, DropdownButton, MenuItem, Collapse, Well, SplitButton, Glyphicon, Table} = ReactBootstrap;
         const api_request = window.superagent;
         var Modal = window.ReactBootstrap.Modal;
@@ -73,9 +73,11 @@
     <script type="text/babel"  data-plugins="transform-decorators-legacy,transform-class-properties"
     src="src/store/Todostore.js" ></script>
     <script type="text/babel"   data-plugins="transform-decorators-legacy"
+    src="src/components/Todolist.js" ></script>
+    <script type="text/babel"   data-plugins="transform-decorators-legacy"
     src="src/components/Todo.js" ></script>
     <script type="text/babel">
-    ReactDOM.render(<Todo store={store} />,document.getElementById('root'));
+    ReactDOM.render(<Provider store={store}><Todo  /></Provider>,document.getElementById('root'));
     </script>
 
 
